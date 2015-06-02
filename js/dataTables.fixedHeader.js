@@ -669,6 +669,7 @@ FixedHeader.prototype = {
 		if ( oMes.iTableTop > oWin.iScrollTop + s.oOffset.top )
 		{
 			/* Above the table */
+			$(nTable).removeClass('isFixed');
 			this._fnUpdateCache( oCache, 'sPosition', "absolute", 'position', nTable.style );
 			this._fnUpdateCache( oCache, 'sTop', oMes.iTableTop+"px", 'top', nTable.style );
 			this._fnUpdateCache( oCache, 'sLeft', oMes.iTableLeft+"px", 'left', nTable.style );
@@ -676,6 +677,7 @@ FixedHeader.prototype = {
 		else if ( oWin.iScrollTop + s.oOffset.top > oMes.iTableTop+iTbodyHeight )
 		{
 			/* At the bottom of the table */
+			$(nTable).removeClass('isFixed');
 			this._fnUpdateCache( oCache, 'sPosition', "absolute", 'position', nTable.style );
 			this._fnUpdateCache( oCache, 'sTop', (oMes.iTableTop+iTbodyHeight)+"px", 'top', nTable.style );
 			this._fnUpdateCache( oCache, 'sLeft', oMes.iTableLeft+"px", 'left', nTable.style );
@@ -683,6 +685,7 @@ FixedHeader.prototype = {
 		else
 		{
 			/* In the middle of the table */
+			$(nTable).addClass('isFixed');
 			this._fnUpdateCache( oCache, 'sPosition', 'fixed', 'position', nTable.style );
 			this._fnUpdateCache( oCache, 'sTop', s.oOffset.top+"px", 'top', nTable.style );
 			this._fnUpdateCache( oCache, 'sLeft', (oMes.iTableLeft-oWin.iScrollLeft)+"px", 'left', nTable.style );
